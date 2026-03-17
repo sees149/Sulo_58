@@ -18,6 +18,13 @@ const sun = new THREE.DirectionalLight(0xffffff, 1.1);
 sun.position.set(30, 50, 30);
 scene.add(sun);
 
+const groundGeometry = new THREE.PlaneGeometry(320, 320);
+const groundMaterial = new THREE.MeshLambertMaterial({ color: 0x6cb66d });
+const ground = new THREE.Mesh(groundGeometry, groundMaterial);
+ground.rotation.x = -Math.PI / 2;
+ground.position.y = -1.5;
+scene.add(ground);
+
 const controls = new PointerLockControls(camera, document.body);
 scene.add(controls.getObject());
 
